@@ -51,12 +51,12 @@ class RenderedHTML:
             str: HTML for Jupyter/Colab
         """
         # Use local source if we're in dev mode
-        if is_in_dev_mode():
-            return self.local_src
+        # if is_in_dev_mode():
+        #     return self.local_src
 
-        # Use local source if we're offline
-        if not internet_on():
-            return self.local_src
+        # # Use local source if we're offline
+        # if not internet_on():
+        #     return self.local_src
 
         # Otherwise use the CDN
         return self.cdn_src
@@ -211,6 +211,7 @@ def render(
     Returns:
         Html: HTML for the visualization
     """
-    local_src = render_local(react_element_name, **kwargs)
+    # local_src = render_local(react_element_name, **kwargs)
+    local_src = ""
     cdn_src = render_cdn(react_element_name, **kwargs)
     return RenderedHTML(local_src, cdn_src)
